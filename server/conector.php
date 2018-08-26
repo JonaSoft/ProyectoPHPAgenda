@@ -18,7 +18,7 @@
             $this->conexion = new mysqli($this->host, $this->user, $this->password, $nombre_db);       
             return 'OK';
         } catch (Exception $e) {
-            return 'ERROR:'.$e->getMessage();            
+            return 'ERROR FATAL :'.$e->getMessage();            
         }
     }
 
@@ -59,7 +59,7 @@
     }
 
     function insertarEvento($eve_codigo, $eve_titulo, $eve_fecha_inicio, $eve_hora_inicio, $eve_fecha_fin, $eve_hora_fin, $eve_usu, $eve_dia_entero ){
-         $sql = "insert into eventos (codigo_e, titulo_e, fechainicio_e, horainicio_e, fechafin_e, horafin_e, usu_e, diaentero_e) VALUES(0,'$eve_titulo', '$eve_fecha_inicio', '$eve_hora_inicio', '$eve_fecha_fin','$eve_hora_fin',$eve_usu,$eve_dia_entero);";         
+         $sql = "insert into eventos (codigo_e, titulo_e, fechainicio_e, horainicio_e, fechafin_e, horafin_e, usu_e, diaentero_e) VALUES(0,'$eve_titulo', '$eve_fecha_inicio', '$eve_hora_inicio', '$eve_fecha_fin','$eve_hora_fin','$eve_usu','$eve_dia_entero');";         
         return $this->ejecutarQuery($sql);
     }
 
@@ -75,7 +75,7 @@
     }
 
     function actualizarEvento($id, $eve_fecha_inicio, $eve_hora_inicio, $eve_fecha_fin, $eve_hora_fin){
-        $sql = "UPDATE eventos SET fechainicio_e = '$eve_fecha_inicio' , horainicio_e = '$eve_hora_inicio', fechafin_e = '$eve_fecha_fin', horafin_e = '$eve_hora_fin' WHERE codigo_e = '$id';";       
+        $sql = "update eventos SET fechainicio_e = '$eve_fecha_inicio' , horainicio_e = '$eve_hora_inicio', fechafin_e = '$eve_fecha_fin', horafin_e = '$eve_hora_fin' WHERE codigo_e = $id;";       
         return $this->ejecutarQuery($sql);
     }
 }

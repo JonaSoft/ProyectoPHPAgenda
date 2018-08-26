@@ -216,7 +216,8 @@ class EventsManager {
           type: 'POST',
           success: (data) =>{
             if (data.msg=="OK") {
-              alert('Se ha actualizado el evento exitosamente')
+              alert('Se ha actualizado el evento exitosamente');
+              window.opener.location.reload();
             }else {
               alert(data.msg)
             }

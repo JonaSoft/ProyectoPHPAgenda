@@ -1,9 +1,9 @@
 <?php
-   include('./conector.php');
+   require('./conector.php');
 
   session_start();
   if (isset($_SESSION['username'])) {
-         $con = new ConectorBD('localhost', 'user_prueba', '12345');
+         $con = new ConectorBD('localhost', 'user_agenda', '12345');
          if ($con->initConexion('agenda_db')=='OK') {
              $id = $_POST['id'];
              $start_date = $_POST['start_date'];
@@ -23,6 +23,7 @@
   }  
   echo json_encode($response);
 
-
+$self = $_SERVER['PHP_SELF']; 
+header("refresh:100; url=$self")
 
  ?>
