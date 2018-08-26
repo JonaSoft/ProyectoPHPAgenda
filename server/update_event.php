@@ -23,7 +23,5 @@
   }  
   echo json_encode($response);
 
-$self = $_SERVER['PHP_SELF']; 
-header("refresh:100; url=$self")
-
+  
  ?>
