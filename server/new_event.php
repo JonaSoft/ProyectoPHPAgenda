@@ -1,6 +1,6 @@
 <?php
   require('./conector.php');
-
+  
   session_start();
   if (isset($_SESSION['username'])) {
          $con = new ConectorBD('localhost', 'user_agenda', '12345');
@@ -32,8 +32,8 @@
   }else {
     $response['msg']= 'No se ha iniciado una sesión';
   }  
+
   echo json_encode($response);
-
-
+ 
  ?>
 

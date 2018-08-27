@@ -5,6 +5,7 @@
     private $user;
     private $password;
     private $conexion;
+    
 
     function __construct($host, $user, $password){
       $this->host = $host;
@@ -42,8 +43,8 @@
       return $this->conexion->query($query);
     }
     //Inserta nuevos usuarios a la base de datos
-    function insertarUsuario($usu_codigo, $usu_nombre_completo, $usu_correo, $usu_fechaNacimiento, $usu_password){
-         $sql = "INSERT INTO usuarios (codigo_u, nombrecompleto_u, correo_u, fechanacimiento_u, password_u) VALUES (0,'$usu_nombre_completo', '$usu_correo','$usu_fechaNacimiento','$usu_password')";         
+    function insertarUsuario($codigo_u, $nombrecompleto_u, $correo_u, $fechanacimiento_u, $password_u){
+         $sql = "INSERT INTO usuarios (codigo_u, nombrecompleto_u, correo_u, fechanacimiento_u, password_u) VALUES (0,'$nombrecompleto_u', '$correo_u','$fechanacimiento_u','$password_u')";         
         return $this->ejecutarQuery($sql);
     }
 
@@ -58,8 +59,8 @@
         return $this->ejecutarQuery($sql);
     }
 
-    function insertarEvento($eve_codigo, $eve_titulo, $eve_fecha_inicio, $eve_hora_inicio, $eve_fecha_fin, $eve_hora_fin, $eve_usu, $eve_dia_entero ){
-         $sql = "insert into eventos (codigo_e, titulo_e, fechainicio_e, horainicio_e, fechafin_e, horafin_e, usu_e, diaentero_e) VALUES(0,'$eve_titulo', '$eve_fecha_inicio', '$eve_hora_inicio', '$eve_fecha_fin','$eve_hora_fin','$eve_usu','$eve_dia_entero');";         
+    function insertarEvento($codigo_e, $titulo_e, $fechainicio_e, $horainicio_e, $fechafin_e, $horafin_e, $usu_e, $diaentero_e ){
+         $sql = "insert into eventos (codigo_e, titulo_e, fechainicio_e, horainicio_e, fechafin_e, horafin_e, usu_e, diaentero_e) VALUES(0,'$titulo_e', '$fechainicio_e', '$horainicio_e', '$fechafin_e','$horafin_e','$usu_e','$diaentero_e');";         
         return $this->ejecutarQuery($sql);
     }
 
@@ -74,8 +75,8 @@
         return $this->ejecutarQuery($sql);
     }
 
-    function actualizarEvento($id, $eve_fecha_inicio, $eve_hora_inicio, $eve_fecha_fin, $eve_hora_fin){
-        $sql = "update eventos SET fechainicio_e = '$eve_fecha_inicio' , horainicio_e = '$eve_hora_inicio', fechafin_e = '$eve_fecha_fin', horafin_e = '$eve_hora_fin' WHERE codigo_e = $id;";       
+    function actualizarEvento($id, $fechainicio_e, $horainicio_e, $fechafin_e, $horafin_e){
+        $sql = "update eventos SET fechainicio_e = '$fechainicio_e' , horainicio_e = '$horainicio_e', fechafin_e = '$fechafin_e', horafin_e = '$horafin_e' WHERE codigo_e = $id;";       
         return $this->ejecutarQuery($sql);
     }
 }

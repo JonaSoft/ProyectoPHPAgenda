@@ -30,7 +30,6 @@ class Login {
       type: 'POST',
       success: function(php_response){
         if (php_response.acceso == "concedido") {
-          /*window.location.href = 'main.html';*/
            window.location.href = 'main.html';
         }else {
           alert(php_response.motivo);

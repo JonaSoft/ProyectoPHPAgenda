@@ -41,7 +41,7 @@ class EventsManager {
         		center: 'title',
         		right: 'month,agendaWeek,basicDay'
         	},
-        	defaultDate: '2018-08-31',
+        	defaultDate: '2018-09-30',
         	navLinks: true,
         	editable: true,
         	eventLimit: true,
@@ -109,11 +109,14 @@ class EventsManager {
         contentType: false,
         data: form_data,
         type: 'POST',
+
         success: (data) =>{
           if (data.msg=="OK") {
-            alert('Se ha añadido el evento exitosamente')
+           alert('Se ha añadido el evento exitosamente')
            this.actualizarEventos();
            this.iniciaFomulario();
+           window.location.href = 'main.html';
+           return false;
           }else {
             alert(data.msg)
           }
@@ -147,7 +150,7 @@ class EventsManager {
         
 
 
-        $('#titulo').val('');
+       $('#titulo').val('');
        $('#start_date').val('');
        $('#allDay').prop('checked', false);
        $('#end_date').val('');
@@ -217,7 +220,7 @@ class EventsManager {
           success: (data) =>{
             if (data.msg=="OK") {
               alert('Se ha actualizado el evento exitosamente');
-              window.opener.location.reload();
+              
             }else {
               alert(data.msg)
             }
@@ -238,8 +241,9 @@ $(function(){
 
   $('form').submit(function(event){
 
-    event.preventDefault()
-    e.anadirEvento()
+    event.preventDefault();
+    e.anadirEvento();
+    
   })
 
 
