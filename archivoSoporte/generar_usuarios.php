@@ -25,7 +25,7 @@
             ('Examen de quimica','2018-09-13',NULL,NULL,NULL,3,1),
             ('Entrevista laboral','2018-09-23','08:00:00','2018-08-23','10:00:00',3,0);");   
 
-    	echo "3 registros insertados en tabla usuarios y 6 en tabla eventos";
+    	echo "3 registros insertados en tabla usuarios y 3 registros por usuario en tabla eventos";
     }
     $conexion->close();
 

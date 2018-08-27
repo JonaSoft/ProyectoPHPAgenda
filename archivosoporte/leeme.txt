@@ -1,6 +1,6 @@
 1-Importar el archivo generaBaseDatosyTablas.sql desde phpMyAdmin, para generar la base de datos y tablas
 2-Ejecutar desde el navegador localhost/agendaphp/archivosoporte/generar_usuarios.php, para generar 3 usuarios y sus eventos. 
-3-Loguearse con cualquiera de los siguientes usuarios generados en el paso anterior...
+3-Loguearse en http://localhost/agendaphp/client/index.html con cualquiera de los siguientes usuarios generados en el paso anterior...
  
 usuario: carlos_b@gmail.com
 password: 12345
